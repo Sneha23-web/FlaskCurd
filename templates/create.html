@@ -1,0 +1,58 @@
+{% extends 'master.html' %}
+{% include 'header.html' %}
+{% block title %} Add Student {% endblock %}
+{% block body %}
+<div class="container">
+    <form method="post" action="">
+        <table class="table table-hover">
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="f_name" class="form-control"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="l_name" class="form-control"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="emil" name="email" class="form-control"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" class="form-control"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td class="d-flex">
+                  Male: <input class="form-check-input" type="radio" name="gender" value="male" style="margin-left:5px;margin-right:10px">
+                  Female <input class="form-check-input" type="radio" name="gender" value="female" style="margin-left:5px;margin-right:10px">
+                </td>
+            </tr>
+            <tr>
+              <td>Hobbies</td>
+                <td class="d-flex">
+                  Singing: <input class="form-check-input" type="checkbox" name="hobbies" value="Singing" style="margin-left:5px;margin-right:10px">
+                  Reding: <input class="form-check-input" type="checkbox" name="hobbies" value="Reding" style="margin-left:5px;margin-right:10px">
+                  Travelling: <input class="form-check-input" type="checkbox" name="hobbies" value="Travelling" style="margin-left:5px;margin-right:10px">
+                </td>
+            </tr>
+            <tr>
+              <td>Country</td>
+              <td>
+                <select class="form-control" name="country">
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="Australia">Australia</option>
+              </select>
+            </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="submit" class="btn btn-warning" name="submit" value="Submit">
+              </td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+{% endblock %}

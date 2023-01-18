@@ -1,0 +1,86 @@
+{% extends 'master.html' %}
+{% include 'header.html' %}
+{% block title %} Add Student {% endblock %}
+{% block body %}
+<div class="container">
+    <form method="post" action="">
+        <table class="table table-hover">
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="f_name" class="form-control" value="{{std.f_name}}"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="l_name" class="form-control" value="{{std.l_name}}"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="emil" name="email" class="form-control" value="{{std.email}}"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" class="form-control" value="{{std.password}}"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td class="d-flex">
+                  <input class="form-check-input" type="radio" name="gender" value="male" style="margin-right:5px"   
+                  {% if std.gender=="male" %}
+                  checked
+                  {% endif %} /> Male               
+                  <input class="form-check-input" type="radio" name="gender" value="female" style="margin-left:10px;margin-right:5px"
+                  {% if std.gender=="female" %}
+                  checked
+                  {% endif %} /> Female
+                </td>
+            </tr>
+            <tr>
+              <td>Hobbies</td>
+                <td class="d-flex">
+                  <input class="form-check-input" type="checkbox" name="hobbies" value="Singing" 
+                  style="margin-right:5px"
+                  {% if 'Singing' in std.hobbies %}
+                      checked
+                  {% endif %} /> Singing
+                 <input class="form-check-input" type="checkbox" name="hobbies" value="Reding" 
+                  style="margin-left:10px;margin-right:10px"
+                  {% if 'Reding' in std.hobbies %}
+                  checked
+                  {% endif %} /> Reding
+                 <input class="form-check-input" type="checkbox" name="hobbies" value="Travelling" 
+                  style="margin-left:10px;margin-right:10px"
+                  {% if 'Travelling' in std.hobbies %}
+                  checked
+                  {% endif %} /> Travelling 
+                </td>
+            </tr>
+            <tr>
+              <td>Country</td>
+              <td><select class="form-control" name="country">
+                <option value="India"
+                {% if 'India' in std.country %}
+                  selected
+                {% endif %}
+                >India</option>
+                <option value="USA"
+                {% if 'USA' in std.country %}
+                  selected
+                {% endif %}
+                >USA</option>
+                <option value="Australia"
+                {% if 'Australia' in std.country %}
+                  selected
+                {% endif %}
+                >Australia</option>
+              </select></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="submit" class="btn btn-warning" name="submit" value="Submit">
+              </td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+{% endblock %}
