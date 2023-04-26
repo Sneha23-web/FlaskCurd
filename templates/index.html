@@ -2,19 +2,25 @@
 {% include 'header.html' %}
 {% block title %} Add Student {% endblock %}
 {% block body %}
-<div class="container">
-<div><h4>Student List</h4></div>
+<div class="container-fluid" style="padding: 0 100px;">
+<!-- <div><h4>Student List</h4></div> -->
 <div>
-    <table class="table">
-        <thead style="background-color: lightgoldenrodyellow;color:rgb(94, 94, 6);">
+    <table class="table table-bordered table-striped" style="background-color: white;">
+        <!-- <thead style="background-color: lightgoldenrodyellow;color:rgb(94, 94, 6);"> -->
+            <thead style="background-color:lightgrey">
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Password</th>
+            <th>Date of Birt</th>
             <th>Gender</th>
-            <th>Hobbies</th>
+            <th>Account Type</th>
+            <th>Pan Number</th>
+            <th>Aadhaar Number</th>
             <th>Country</th>
+            <th>State</th>
+            <th>Preferred Branch</th>
+            <th>Address</th>
             <th>Action</th>
 
         </thead>
@@ -25,17 +31,25 @@
                 <td>{{student.f_name}}</td>
                 <td>{{student.l_name}}</td>
                 <td>{{student.email}}</td>
-                <td>{{student.password}}</td>
+                <td>{{student.dob}}</td>
                 <td>{{student.gender}}</td>
-                <td>{{student.hobbies}}</td>
+                <td>{{student.acc_type}}</td>
+                <td>{{student.pan}}</td>
+                <td>{{student.aadhaar}}</td>
                 <td>{{student.country}}</td>
+                <td>{{student.state}}</td>
+                <td>{{student.pre_branch}}</td>
+                <td>{{student.addr}}</td>
+
                 <td>
+                    <div style="display: flex;padding: 0 15px;">
                     <span>
                         <a href="/{{student.id}}/edit"><i class="fa fa-edit" style="font-size:24px;color:green;margin-right: 10px;"></i></a>
                     </span>
                     <span>
                         <a href="/{{student.id}}/delete"> <i class="fa fa-trash" style="font-size:24px;color:red"></i> </a>
                    </span>
+                   </div>
                 </td>
             </tr>
             {% endfor %}

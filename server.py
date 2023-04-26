@@ -4,7 +4,7 @@ from models import db, StudentModel
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banking.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
@@ -23,24 +23,37 @@ def create():
          return render_template('create.html')
 
     if request.method == 'POST':
-        hobby = request.form.getlist('hobbies')
-        hobbies = ",".join(map(str,hobby))
+        accType = request.form.getlist('acc_type')
+        acc_type = ",".join(map(str,accType))
         f_name = request.form['f_name']
         l_name = request.form['l_name']
         email = request.form['email']
-        password = request.form['password']
+        dob = request.form['dob']
         gender = request.form['gender']
-        hobbies = hobbies
+        acc_type = acc_type
+        pan = request.form['pan']
+        aadhaar = request.form['aadhaar']
         country = request.form['country']
+        state = request.form['state']
+        pre_branch = request.form['pre_branch']
+        addr = request.form['addr']
+
+
+
 
         students = StudentModel(
             f_name = f_name,
             l_name = l_name,
             email = email,
-            password = password,
+            dob = dob,
             gender = gender,
-            hobbies = hobbies,
-            country = country
+            acc_type = acc_type,
+            country = country,
+            state = state,
+            pan = pan,
+            aadhaar = aadhaar,
+            pre_branch = pre_branch,
+            addr = addr
 
         )
         db.session.add(students)
@@ -61,24 +74,34 @@ def update(id):
         db.session.delete(std)
         db.session.commit()
         if std:
-            hobby = request.form.getlist('hobbies')
-            hobbies = ",".join(map(str,hobby))
+            accType = request.form.getlist('acc_type')
+            acc_type = ",".join(map(str,accType))
             f_name = request.form['f_name']
             l_name = request.form['l_name']
             email = request.form['email']
-            password = request.form['password']
+            dob = request.form['dob']
             gender = request.form['gender']
-            hobbies = hobbies
+            acc_type = acc_type
+            pan = request.form['pan']
+            aadhaar = request.form['aadhaar']
             country = request.form['country']
+            state = request.form['state']
+            pre_branch = request.form['pre_branch']
+            addr = request.form['addr']
             
             studentdata = StudentModel(
                 f_name = f_name,
                 l_name = l_name,
                 email = email,
-                password = password,
+                dob = dob,
                 gender = gender,
-                hobbies = hobbies,
-                country = country
+                acc_type = acc_type,
+                country = country,
+                state = state,
+                pan = pan,
+                aadhaar = aadhaar,
+                pre_branch = pre_branch,
+                addr = addr
             )
             db.session.add(studentdata)
             db.session.commit()

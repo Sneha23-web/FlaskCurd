@@ -4,83 +4,112 @@
 {% block body %}
 <div class="container">
     <form method="post" action="">
-        <table class="table table-hover">
-            <tr>
-                <td>First Name</td>
-                <td><input type="text" name="f_name" class="form-control" value="{{std.f_name}}"></td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td><input type="text" name="l_name" class="form-control" value="{{std.l_name}}"></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="emil" name="email" class="form-control" value="{{std.email}}"></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="password" class="form-control" value="{{std.password}}"></td>
-            </tr>
-            <tr>
-                <td>Gender</td>
-                <td class="d-flex">
-                  <input class="form-check-input" type="radio" name="gender" value="male" style="margin-right:5px"   
-                  {% if std.gender=="male" %}
+        <div class="row">
+          <div class="col-md-6">
+            <label>First Name</label><br>
+            <input type="text" name="f_name" class="form-control" value="{{std.f_name}}">
+          </div>
+          <div class="col-md-6">
+              <label>Last Name</label><br>
+              <input type="text" name="l_name" class="form-control" value="{{std.l_name}}">
+          </div>
+          <div class="col-md-6 mt-2">
+            <label>Email</label><br>
+            <input type="email" name="email" class="form-control" value="{{std.email}}">
+          </div>
+          <div class="col-md-6 mt-2">
+            <label>Date of Birth</label><br>
+            <input type="text" name="dob" class="form-control" value="{{std.dob}}">
+          </div>
+          <div class="col-md-6 mt-2">
+            <label>Gender</label><br>
+              <div class="d-flex">
+                Male: <input class="form-check-input" type="radio" name="gender" value="male" style="margin-left:5px;margin-right:10px"
+                {% if std.gender=="male" %}
                   checked
-                  {% endif %} /> Male               
-                  <input class="form-check-input" type="radio" name="gender" value="female" style="margin-left:10px;margin-right:5px"
-                  {% if std.gender=="female" %}
+                  {% endif %} />
+                Female <input class="form-check-input" type="radio" name="gender" value="female" style="margin-left:5px;margin-right:10px"
+                {% if std.gender=="female" %}
                   checked
-                  {% endif %} /> Female
-                </td>
-            </tr>
-            <tr>
-              <td>Hobbies</td>
-                <td class="d-flex">
-                  <input class="form-check-input" type="checkbox" name="hobbies" value="Singing" 
-                  style="margin-right:5px"
-                  {% if 'Singing' in std.hobbies %}
+                  {% endif %} />
+              </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <label>Account Type</label><br>
+              <div class="d-flex">
+                Personal: <input class="form-check-input" type="checkbox" name="acc_type" value="Personal" style="margin-left:5px;margin-right:10px"
+                {% if 'Personal' in std.acc_type %}
                       checked
-                  {% endif %} /> Singing
-                 <input class="form-check-input" type="checkbox" name="hobbies" value="Reding" 
-                  style="margin-left:10px;margin-right:10px"
-                  {% if 'Reding' in std.hobbies %}
+                  {% endif %}  />
+                Saving: <input class="form-check-input" type="checkbox" name="acc_type" value="Saving" style="margin-left:5px;margin-right:10px"
+                {% if 'Saving' in std.acc_type %}
+                checked
+                {% endif %} />
+                Join: <input class="form-check-input" type="checkbox" name="acc_type" value="Join" style="margin-left:5px;margin-right:10px"
+                {% if 'Join' in std.acc_type %}
                   checked
-                  {% endif %} /> Reding
-                 <input class="form-check-input" type="checkbox" name="hobbies" value="Travelling" 
-                  style="margin-left:10px;margin-right:10px"
-                  {% if 'Travelling' in std.hobbies %}
-                  checked
-                  {% endif %} /> Travelling 
-                </td>
-            </tr>
-            <tr>
-              <td>Country</td>
-              <td><select class="form-control" name="country">
-                <option value="India"
-                {% if 'India' in std.country %}
-                  selected
-                {% endif %}
-                >India</option>
-                <option value="USA"
-                {% if 'USA' in std.country %}
-                  selected
-                {% endif %}
-                >USA</option>
-                <option value="Australia"
-                {% if 'Australia' in std.country %}
-                  selected
-                {% endif %}
-                >Australia</option>
-              </select></td>
-            </tr>
-            <tr>
-              <td>
-                <input type="submit" class="btn btn-warning" name="submit" value="Submit">
-              </td>
-            </tr>
-        </table>
-
+                  {% endif %}  />
+              </div>
+          </div>
+          <div class="col-md-6 mt-2">
+            <label>Pan Number</label><br>
+            <input type="text" name="pan" class="form-control" value="{{std.pan}}">
+        </div>
+        <div class="col-md-6 mt-2">
+          <label>Aadhaar Number</label><br>
+          <input type="text" name="aadhaar" class="form-control" value="{{std.aadhaar}}">
+      </div>
+      <div class="col-md-6 mt-2">
+        <label>Country</label><br>
+          <select class="form-select" name="country">
+          <option value="India" {% if 'India' in std.country %}
+          selected
+        {% endif %}>India</option>
+          <option value="USA" {% if 'USA' in std.country %}
+          selected
+        {% endif %}>USA</option>
+          <option value="Australia" {% if 'Australia' in std.country %}
+          selected
+        {% endif %}>Australia</option>
+        </select>
+      </div>
+      <div class="col-md-6 mt-2">
+        <label>State</label><br>
+          <select class="form-select" name="state">
+          <option value="Maharashtra" {% if 'Maharashtra' in std.state %}
+          selected
+        {% endif %}>Maharashtra</option>
+          <option value="California" {% if 'California' in std.state %}
+          selected
+        {% endif %}>California</option>
+          <option value="Sydney" {% if 'Sydney' in std.state %}
+          selected
+        {% endif %}>Sydney</option>
+        </select>
+      </div>
+      <div class="col-md-6 mt-2">
+        <label>Preferred Branch</label><br>
+          <select class="form-select" name="pre_branch">
+          <option value="Narayan Peth" {% if 'NarayanPeth' in std.pre_branch %}
+          selected
+        {% endif %}>Narayan Peth</option>
+          <option value="Kothrud" {% if 'Kothrud' in std.pre_branch %}
+          selected
+        {% endif %}>Kothrud</option>
+          <option value="Warje" {% if 'Warje' in std.pre_branch %}
+          selected
+        {% endif %}>Warje</option>
+        </select>
+      </div>
+      <div class="col-md-6 mt-2">
+        <label>Address</label><br>
+          <input type="text" name="addr" class="form-control" value="{{std.addr}}">
+      </div>
+        
+          <div class="col-md-12 mt-3 mb-4">
+              <input type="submit" class="btn btn-success" name="submit" value="Submit">
+          </div>
+      </div>
     </form>
 </div>
 {% endblock %}
